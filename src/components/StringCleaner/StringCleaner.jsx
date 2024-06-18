@@ -27,19 +27,19 @@ const StringCleaner = () => {
             type='text'
             id='stringInput'
             value={inputValue}
-            className='border-2 border-grey-500'
+            className='border-2 border-grey-500 px-2 rounded-md'
             onChange={handleInputChange}
           />
           <button
             className='bg-[#6FBED6] rounded-sm text-white ml-2 text-sm px-2'
             onClick={cleanString}
           >
-            Clean String
+            Clean string
           </button>
         </div>
       </div>
       <div className='flex gap-2 mt-4'>
-        <h1 className='text-left text-sm'>Clean string:</h1>
+        <h1 className='text-left text-sm'>Cleaned string:</h1>
         <h1 className='text-left text-sm text-[#6FBED6] font-medium'>
           {cleanedString}
         </h1>
