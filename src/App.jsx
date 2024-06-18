@@ -1,7 +1,10 @@
+import StringCleaner from "./components/StringCleaner";
+
 const App = () => {
   return (
-    <div>
-      <h1 className='bg-red-400'>Movies app</h1>
+    <div className='text-center'>
+      <h1 className='text-white text-2xl'>Movies app</h1>
+      <StringCleaner />
     </div>
   );
 };
