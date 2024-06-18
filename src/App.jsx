@@ -47,7 +47,6 @@ const App = () => {
     return countByYear;
   };
 
-  console.log(countByYear(movies), "Mi conteo de peliculas");
   const countByYearData = countByYear(movies);
 
   return (
@@ -102,7 +101,7 @@ const App = () => {
                   Oops! No movies found. Try a different search.
                 </h1>
               ) : (
-                <div class='grid grid-cols-1  md:grid-cols-3 lg:grid-cols-4 gap-6 '>
+                <div className='grid grid-cols-1  md:grid-cols-3 lg:grid-cols-4 gap-6 '>
                   {movies?.map(({ Title, Year, Poster, Type, imdbID }) => (
                     <Card
                       title={Title}
@@ -118,7 +117,7 @@ const App = () => {
           )}
         </div>
 
-        <div class='rounded bg-white flex flex-col p-3 gap-3 w-full max-w-[1000px] m-auto'>
+        <div className='rounded bg-white flex flex-col p-3 gap-3 w-full max-w-[1000px] m-auto'>
           <div className='flex gap-3'>
             <div className='w-full bg-[#6FBED6] text-white font-bold rounded h-[70px] flex items-center justify-center'>
               Caja 1
