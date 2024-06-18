@@ -37,6 +37,27 @@ const App = () => {
             />
           ))}
         </div>
+        <div class='rounded bg-white flex flex-col p-3 gap-3 w-full max-w-[1000px] m-auto'>
+          <div className='flex gap-3'>
+            <div className='w-full bg-[#6FBED6] text-white font-bold rounded h-[70px] flex items-center justify-center'>
+              Caja 1
+            </div>
+            <div className='w-full bg-[#6FBED6] text-white font-bold rounded h-[70px] flex items-center justify-center'>
+              Caja 2
+            </div>
+            <div className='w-full bg-[#6FBED6] text-white font-bold rounded h-[70px] flex items-center justify-center'>
+              Caja 3
+            </div>
+          </div>
+          <div className='flex gap-3'>
+            <div className='w-full bg-[#6FBED6] text-white font-bold rounded h-[70px] flex items-center justify-center'>
+              Caja 4
+            </div>
+            <div className='w-full bg-[#6FBED6] text-white font-bold rounded h-[70px] flex items-center justify-center'>
+              Caja 5
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
