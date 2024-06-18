@@ -24,11 +24,31 @@ const App = () => {
         setLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
+        setLoading(false);
       }
     };
 
     getMovies();
   }, [movieSearchTerm]);
+
+  const countByYear = (movies) => {
+    let countByYear = {};
+
+    movies?.forEach((movie) => {
+      let year = movie.Year;
+
+      if (countByYear[year]) {
+        countByYear[year]++;
+      } else {
+        countByYear[year] = 1;
+      }
+    });
+
+    return countByYear;
+  };
+
+  console.log(countByYear(movies), "Mi conteo de peliculas");
+  const countByYearData = countByYear(movies);
 
   return (
     <div>
@@ -39,20 +59,35 @@ const App = () => {
         <StringCleaner />
 
         <div className='mx-auto w-full max-w-[1000px]'>
-          <div className='mb-4 w-full'>
-            <input
-              type='text'
-              id='stringInput'
-              value={inputValue}
-              className='border-2 border-grey-500 px-2 rounded-md'
-              onChange={handleInputChange}
-            />
-            <button
-              onClick={() => setMovieSearchTerm(inputValue)}
-              className='bg-[#6FBED6] border-2 border-white text-white ml-2 py-[2px] rounded-md text-sm px-2'
-            >
-              Search
-            </button>
+          <div className='flex mb-6'>
+            <div className='mb-4 w-full'>
+              <input
+                type='text'
+                id='stringInput'
+                value={inputValue}
+                className='border-2 border-grey-500 px-2 rounded-md'
+                onChange={handleInputChange}
+              />
+              <button
+                onClick={() => setMovieSearchTerm(inputValue)}
+                className='bg-[#6FBED6] border-2 border-white text-white ml-2 py-[2px] rounded-md text-sm px-2'
+              >
+                Search
+              </button>
+            </div>
+            {(!loading || !movies?.length) && (
+              <aside>
+                <h2 className='text-white text-sm'>Movies count by year</h2>
+                <div>
+                  {Object.entries(countByYearData)?.map(([year, count]) => (
+                    <div className='flex gap-3' key={year}>
+                      <span className='text-sm text-white'>{year}:</span>
+                      <span className='text-sm text-white'>{count}</span>
+                    </div>
+                  ))}
+                </div>
+              </aside>
+            )}
           </div>
           {loading ? (
             <img
